@@ -9,7 +9,7 @@ Druha cislica zo zapisu [1-3:1-27]
 public class Light extends Value {
 
     public Light(int number) {
-        super(number);
+        super.setNumber(number);
     }
 
     // TODO: Kontrola rozsahu 1 - 27, inak nejaky default alebo chyba

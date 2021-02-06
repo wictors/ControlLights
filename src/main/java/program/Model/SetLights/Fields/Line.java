@@ -9,7 +9,7 @@ Prva cislica zo zapisu [1-3:1-27]
 public class Line extends Value {
 
     public Line(int number) {
-        super(number);
+        super.setNumber(number);
     }
 
     // TODO: Kontrola rozsahu 1 - 3, inak nejaky default alebo chyba

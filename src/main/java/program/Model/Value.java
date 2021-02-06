@@ -4,9 +4,9 @@ package program.Model;
 
 public abstract class Value {
 
-    private final int number;
+    private int number;
 
-    public Value(int number) {
+    protected void setNumber(int number){
         this.number = number;
     }
 

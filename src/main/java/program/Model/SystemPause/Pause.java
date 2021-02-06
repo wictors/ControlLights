@@ -10,6 +10,7 @@ import yajco.annotation.Before;
 public class Pause extends Command {
 
     private final Duration number;
+
     @Before("wait")
     public Pause( @Before("COLON") Duration number) {
         this.number = number;
