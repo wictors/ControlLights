@@ -12,6 +12,10 @@ public class Line extends Value {
         super.setNumber(number);
     }
 
+    public Line(String variable){
+        super.setVariable(variable);
+    }
+
     // TODO: Kontrola rozsahu 1 - 3, inak nejaky default alebo chyba
     public int getLine(){
         return super.getValue();

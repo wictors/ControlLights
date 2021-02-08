@@ -1,10 +1,11 @@
 package program.Model.Loop;
-
 import program.Instance.Instance;
 import program.Model.Command;
 import program.Model.Variables;
 import yajco.annotation.After;
 import yajco.annotation.Before;
+
+/* Zakladna definicia prikazu cyklu FOR a vykonanie prikazov v nom*/
 
 public class Loop extends Command {
 

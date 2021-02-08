@@ -16,7 +16,6 @@ public final class Lights implements Config {
     private static final int LIGHTSinLINE = 27;
     private final Line line;
     private final Light[] lights;
-    private ArrayList<Integer> lightsPosition = new ArrayList<>();
 
     @Before("[")
     @After("]")
@@ -29,6 +28,7 @@ public final class Lights implements Config {
 
     @Override
     public ArrayList<Integer> getLightsPosition() {
+        ArrayList<Integer> lightsPosition = new ArrayList<>();
         lightsPosition.ensureCapacity(lights.length);
         for (Light light : lights) {
             lightsPosition.add(light.getLight() + (line.getLine()*LIGHTSinLINE) - LIGHTSinLINE);

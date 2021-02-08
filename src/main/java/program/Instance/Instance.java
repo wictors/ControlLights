@@ -1,6 +1,8 @@
 package program.Instance;
-
 import program.Model.Variables;
+
+/*Jedinecnost pozadovanych objektov v celom programe.
+* Variables, OpenLab --> 1 instancia kdekolvek v programe*/
 
 public enum Instance {
     INSTANCE;

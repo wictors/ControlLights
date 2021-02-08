@@ -12,7 +12,6 @@ Zapis moze obsahovat zapis pre 3 rady sucasne alebo aj pre 1 samostatne
 public class Lines implements Config {
 
     private Lights[] lines;
-    private ArrayList<Integer> lightsPosition = new ArrayList<>();
 
     public Lines(@Separator(".") @Range(minOccurs = 1, maxOccurs = 3) Lights[] lines) {
         this.lines = lines;
@@ -20,6 +19,7 @@ public class Lines implements Config {
 
     @Override
     public ArrayList<Integer> getLightsPosition() {
+        ArrayList<Integer> lightsPosition = new ArrayList<>();
         for (Lights lights: lines) {
             lightsPosition.addAll(lights.getLightsPosition());
         }

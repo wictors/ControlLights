@@ -1,6 +1,7 @@
 package program.Model.Loop;
-
 import yajco.annotation.*;
+
+/*Loop musi mat vzdy definovane 3 parametre*/
 
 //@Parentheses
 public class LoopParameters {

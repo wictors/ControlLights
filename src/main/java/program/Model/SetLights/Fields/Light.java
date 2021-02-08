@@ -12,6 +12,10 @@ public class Light extends Value {
         super.setNumber(number);
     }
 
+    public Light(String variable){
+        super.setVariable(variable);
+    }
+
     // TODO: Kontrola rozsahu 1 - 27, inak nejaky default alebo chyba
     public int getLight(){
         return super.getValue();

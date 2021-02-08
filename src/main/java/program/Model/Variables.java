@@ -1,6 +1,8 @@
 package program.Model;
-
 import java.util.HashMap;
+
+/*Trieda pocas behu programu zabezpecuje uchovavanie a citanie
+* premennych definovanych pouzivatelom*/
 
 public class Variables {
 

@@ -1,8 +1,9 @@
 package program.Model.Loop;
-
 import program.Instance.Instance;
 import program.Model.Value;
 import yajco.annotation.Before;
+
+/*Hodnoty parametrov vratane definovania premennej v prvom parametri*/
 
 public class LoopParameterValue extends Value {
 
