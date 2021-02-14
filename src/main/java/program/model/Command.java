@@ -1,4 +1,4 @@
-package program.Model;
+package program.model;
 
 /* Abstraktna trieda reprezentujuca jednotlivy cely prikaz v jazyku */
 

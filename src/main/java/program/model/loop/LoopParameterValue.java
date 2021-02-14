@@ -1,6 +1,6 @@
-package program.Model.Loop;
-import program.Instance.Instance;
-import program.Model.Value;
+package program.model.loop;
+import program.instance.Instance;
+import program.model.Value;
 import yajco.annotation.Before;
 
 /*Hodnoty parametrov vratane definovania premennej v prvom parametri*/
@@ -19,7 +19,7 @@ public class LoopParameterValue extends Value {
         this.variable = variable;
     }
 
-    public String getVariable() {
+    String getVariable() {
         if (variable == null){
             return "";
         }

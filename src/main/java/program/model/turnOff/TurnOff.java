@@ -1,5 +1,5 @@
-package program.Model.TurnOff;
-import program.Model.Command;
+package program.model.turnOff;
+import program.model.Command;
 import yajco.annotation.Before;
 
 /* Trieda definujuca prikaz vypnutia vsetkych svetiel.

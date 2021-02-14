@@ -1,6 +1,6 @@
-package program.Model.SystemPause;
-import program.Model.Command;
-import program.Model.SetLights.Fields.Duration;
+package program.model.systemPause;
+import program.model.Command;
+import program.model.setLights.fields.Duration;
 import yajco.annotation.Before;
 
 /* Trieda definujuca prikaz systemoveho cakania. Casovy interval po ktorom sa vykona dalsi prikaz.

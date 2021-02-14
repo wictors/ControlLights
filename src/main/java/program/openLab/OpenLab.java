@@ -1,4 +1,4 @@
-package program.OpenLab;
+package program.openLab;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -95,7 +95,7 @@ public class OpenLab {
     private String spravaJson(int trvanie){
         StringBuilder sb = new StringBuilder();
         sb.append("{\"colors\":[");
-//        for (Light svetlo : svetla) {
+//        for (LightNumber svetlo : svetla) {
 //            if (svetlo != null) {
 //                sb.append("\"");
 //                sb.append(svetlo.getHex());

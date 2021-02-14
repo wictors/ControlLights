@@ -1,4 +1,4 @@
-package program.Model.SetLights;
+package program.model.setLights;
 
 import java.util.ArrayList;
 

@@ -1,5 +1,5 @@
-package program.Model.SetLights.Fields;
-import program.Model.Value;
+package program.model.setLights.fields;
+import program.model.Value;
 
 /* Trieda rozsirujuca ciselnu hodnotu.
 Reprezentuje milisekundy pre pouzitie trvania systemovej pauzy alebo dlzky rozsvecovania svetiel

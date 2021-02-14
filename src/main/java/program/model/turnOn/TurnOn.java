@@ -1,5 +1,5 @@
-package program.Model.TurnOn;
-import program.Model.Command;
+package program.model.turnOn;
+import program.model.Command;
 import yajco.annotation.Before;
 
 /* Trieda definujuca prikaz zapnutia vsetkych svetiel.

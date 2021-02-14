@@ -1,6 +1,6 @@
 @Parser(
         className = "parser.ExpressionParser",
-        mainNode = "program.Program",
+        mainNode = "program.Model.Program",
         tokens = {
                 @TokenDef(name = "COLON", regexp = "[:]"),
                 @TokenDef(name = "NUMBER", regexp = "[0-9]+"),
@@ -14,7 +14,7 @@
                 @Skip("\\r")
         }
 )
-package program.Model;
+package program.model;
 
 import yajco.annotation.config.Parser;
 import yajco.annotation.config.Skip;

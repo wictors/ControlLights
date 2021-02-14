@@ -1,8 +1,8 @@
-package program.Model;
+package program.model;
 
 /* Abstraktna trieda reprezentujuca ciselnu hodnotu v jazyku*/
 
-import program.Instance.Instance;
+import program.instance.Instance;
 
 public abstract class Value {
 

@@ -1,9 +1,7 @@
 package program;
-
 import parser.ExpressionParser;
-import program.Model.Command;
+import program.model.Program;
 
-import java.awt.*;
 import java.io.FileReader;
 
 public class Main {

@@ -1,27 +1,26 @@
-package program.Model.SetLights;
-import yajco.annotation.Range;
+package program.model.setLights;
 import yajco.annotation.Separator;
 import java.util.ArrayList;
 
 /*
-Zapis [1..3:1..27].[1..3:1..27].[1..3:1..27]
+Zapis [1..3:1..27], ... ,[1..3:1..27]
 Zhromazduje vsetky svetla, ktore maju byt ovplyvnene zo zapisu.
 Zapis moze obsahovat zapis pre 3 rady sucasne alebo aj pre 1 samostatne
 */
 
-public class Lines implements Config {
+public class Lights implements Config {
 
-    private Lights[] lines;
+    private Coordinates[] coordinates;
 
-    public Lines(@Separator(".") @Range(minOccurs = 1, maxOccurs = 3) Lights[] lines) {
-        this.lines = lines;
+    public Lights(@Separator(",") Coordinates[] coordinates) {
+        this.coordinates = coordinates;
     }
 
     @Override
     public ArrayList<Integer> getLightsPosition() {
         ArrayList<Integer> lightsPosition = new ArrayList<>();
-        for (Lights lights: lines) {
-            lightsPosition.addAll(lights.getLightsPosition());
+        for (Coordinates coordinate : coordinates) {
+            lightsPosition.addAll(coordinate.getLightsPosition());
         }
         return lightsPosition;
     }

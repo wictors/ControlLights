@@ -1,4 +1,4 @@
-package program.Model;
+package program.model;
 import java.util.HashMap;
 
 /*Trieda pocas behu programu zabezpecuje uchovavanie a citanie

@@ -1,5 +1,4 @@
-package program;
-import program.Model.Command;
+package program.model;
 import yajco.annotation.Range;
 
 /*Hlavna trieda reprezentujuca cely konfiguracny dokument

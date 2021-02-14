@@ -1,5 +1,5 @@
-package program.Instance;
-import program.Model.Variables;
+package program.instance;
+import program.model.Variables;
 
 /*Jedinecnost pozadovanych objektov v celom programe.
 * Variables, OpenLab --> 1 instancia kdekolvek v programe*/

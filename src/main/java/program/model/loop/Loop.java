@@ -1,7 +1,7 @@
-package program.Model.Loop;
-import program.Instance.Instance;
-import program.Model.Command;
-import program.Model.Variables;
+package program.model.loop;
+import program.instance.Instance;
+import program.model.Command;
+import program.model.Variables;
 import yajco.annotation.After;
 import yajco.annotation.Before;
 
@@ -23,7 +23,7 @@ public class Loop extends Command {
     public void execute() {
         int startValue = loopParameters.getStartValue();
         int step = loopParameters.getStep();
-        int endValue = loopParameters.getRepetation() * step;
+        int endValue = loopParameters.getEndValue();
         String variable = loopParameters.getVariable();
         Variables variables = Instance.INSTANCE.getVariables();
         for (int i = startValue; i <= endValue; i+=step){
