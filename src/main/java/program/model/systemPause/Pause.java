@@ -1,6 +1,6 @@
 package program.model.systemPause;
 import program.model.Command;
-import program.model.setLights.fields.Duration;
+import program.model.Number;
 import yajco.annotation.Before;
 
 /* Trieda definujuca prikaz systemoveho cakania. Casovy interval po ktorom sa vykona dalsi prikaz.
@@ -9,15 +9,15 @@ import yajco.annotation.Before;
  * */
 public class Pause extends Command {
 
-    private final Duration number;
+    private final Number duration;
 
     @Before("wait")
-    public Pause( @Before("COLON") Duration number) {
-        this.number = number;
+    public Pause( @Before("COLON") Number duration) {
+        this.duration = duration;
     }
 
     @Override
     public void execute() {
-        System.out.println("Pauza systemu na: " + number.getValue() + " milisekund");
+        System.out.println("Pauza systemu na: " + duration.getNumber() + " milisekund");
     }
 }

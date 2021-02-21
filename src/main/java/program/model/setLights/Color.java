@@ -1,4 +1,4 @@
-package program.model.setLights.fields;
+package program.model.setLights;
 
 /*Trieda reprezentujuca farbu svetla v hexadecimalnom tvare
 * Farba je udana priamo v texte konfiguracie

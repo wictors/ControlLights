@@ -1,5 +1,4 @@
 package program.model.setLights;
-import program.model.setLights.fields.Color;
 import yajco.annotation.Before;
 
 /* Zapis: [1..3:1..27], ... ,[1..3:1..27] -> #hex (Color)

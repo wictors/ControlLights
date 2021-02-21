@@ -6,7 +6,7 @@ import program.instance.Instance;
 
 public abstract class Value {
 
-    private int number;
+    private int value;
     private String variable;
     private boolean isVariable = false;
 
@@ -15,14 +15,14 @@ public abstract class Value {
         this.variable = variable;
     }
 
-    protected void setNumber(int number){
-        this.number = number;
+    protected void setValue(int value){
+        this.value = value;
     }
 
     protected int getValue() {
         if (isVariable){
             return Instance.INSTANCE.getVariables().getVariable(variable);
         }
-        return number;
+        return value;
     }
 }

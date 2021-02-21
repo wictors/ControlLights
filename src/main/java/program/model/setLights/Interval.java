@@ -1,5 +1,5 @@
 package program.model.setLights;
-import program.model.setLights.fields.LightNumber;
+import program.model.Number;
 import yajco.annotation.Before;
 import java.util.ArrayList;
 
@@ -9,31 +9,31 @@ import java.util.ArrayList;
 
 public class Interval {
 
-    private LightNumber lightNumber;
-    private LightNumber startNumber;
-    private LightNumber endNumber;
+    private Number number;
+    private Number startNumber;
+    private Number endNumber;
 
 
-    public Interval(LightNumber lightNumber) {
-        this.lightNumber = lightNumber;
-    }
-
-    public Interval(LightNumber startNumber, @Before("..") LightNumber endNumber){
+    public Interval(Number startNumber, @Before("..") Number endNumber){
         this.startNumber = startNumber;
         this.endNumber = endNumber;
+    }
+
+    public Interval(Number number) {
+        this.number = number;
     }
 
     //todo - startNUMBER < endNUMBER ... osetrit
     ArrayList<Integer> getIntervalNumbers (){
         ArrayList<Integer> numbers = new ArrayList<>();
-        if (lightNumber == null){
-            numbers.ensureCapacity(endNumber.getLightNumber() - startNumber.getLightNumber() + 1);
-            for (int i = startNumber.getLightNumber(); i<= endNumber.getLightNumber(); i++){
+        if (number == null){
+            numbers.ensureCapacity(endNumber.getNumber() - startNumber.getNumber() + 1);
+            for (int i = startNumber.getNumber(); i<= endNumber.getNumber(); i++){
                 numbers.add(i);
             }
             return numbers;
         }
-        numbers.add(lightNumber.getLightNumber());
+        numbers.add(number.getNumber());
         return numbers;
     }
 }

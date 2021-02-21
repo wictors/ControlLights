@@ -1,11 +1,12 @@
 @Parser(
         className = "parser.ExpressionParser",
-        mainNode = "program.Model.Program",
+        mainNode = "program.model.Program",
         tokens = {
                 @TokenDef(name = "COLON", regexp = "[:]"),
                 @TokenDef(name = "NUMBER", regexp = "[0-9]+"),
                 @TokenDef(name = "HEX", regexp = "[#0-9a-z]+"),
-                @TokenDef(name = "VARIABLE", regexp = "[a-z]+")
+                @TokenDef(name = "VARIABLE", regexp = "[a-z]+"),
+                @TokenDef(name = "ASSIGN", regexp = "[=]")
         },
         skips = {
                 @Skip(" "),

@@ -1,6 +1,8 @@
 package program.model.setLights;
+import program.instance.Instance;
 import program.model.Command;
-import program.model.setLights.fields.Duration;
+import program.model.Number;
+import program.openLab.OpenLabHTTPCon;
 import yajco.annotation.After;
 import yajco.annotation.Before;
 
@@ -10,11 +12,12 @@ import yajco.annotation.Before;
 */
 public class ConfigurationLights extends Command {
 
-    private Duration duration;
+    private Number duration;
     private Configuration[] configurations;
+    private static final int numberOfLights = 81;
 
     @Before("lights")
-    public ConfigurationLights(@Before("COLON") Duration duration,
+    public ConfigurationLights(@Before("COLON") Number duration,
                                @Before("{") @After("}") Configuration[] configurations)
     {
         this.duration = duration;
@@ -24,7 +27,8 @@ public class ConfigurationLights extends Command {
 
     @Override
     public void execute() {
-        System.out.println("Zmena svetiel bude trvat: " + duration.getValue() + " milisekund");
+        //setLightsHTTP();
+        System.out.println("Zmena svetiel bude trvat: " + duration.getNumber() + " milisekund");
         for (Configuration configuration: configurations) {
             System.out.print("Farba: " + configuration.getColor().getColor() + " pre svetla: ");
             for (Integer light: configuration.getLights().getLightsPosition()) {
@@ -32,5 +36,16 @@ public class ConfigurationLights extends Command {
             }
             System.out.println("");
         }
+    }
+
+    private void setLightsHTTP(){
+        OpenLabHTTPCon olHttp = Instance.INSTANCE.getOlHttp();
+        String[] lights = new String[numberOfLights];
+        for (Configuration configuration: configurations) {
+            for (Integer light: configuration.getLights().getLightsPosition()) {
+                lights[light-1] = configuration.getColor().getColor();
+            }
+        }
+        olHttp.setLights(lights, duration.getNumber());
     }
 }

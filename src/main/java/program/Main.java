@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         ExpressionParser ep = new ExpressionParser();
         try {
-            Program program = ep.parse(new FileReader("test.txt"));
+            Program program = ep.parse(new FileReader("test1.txt"));
             program.execute();
         } catch (Exception e) {
             e.printStackTrace();
