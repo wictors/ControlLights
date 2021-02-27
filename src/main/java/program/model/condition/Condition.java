@@ -1,7 +1,6 @@
 package program.model.condition;
 
 import program.model.ExpBool;
-import program.model.Expression;
 import program.model.Command;
 import yajco.annotation.After;
 import yajco.annotation.Before;

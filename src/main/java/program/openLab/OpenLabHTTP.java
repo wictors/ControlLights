@@ -5,15 +5,16 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.TimeUnit;
 
-public class OpenLabHTTPCon {
+public class OpenLabHTTP extends Connection {
 
     private static URL onUrl;
     private static URL offUrl;
     private static URL changeLightsUrl;
     private static boolean responseOK;
 
-    public OpenLabHTTPCon() {
+    public OpenLabHTTP() {
         try {
             onUrl = new URL("https://openlab.kpi.fei.tuke.sk/rest/light/all-on");
             offUrl = new URL("https://openlab.kpi.fei.tuke.sk/rest/light/all-off");
@@ -51,7 +52,7 @@ public class OpenLabHTTPCon {
         return false;
     }
 
-    private boolean sendMessage(String message){
+    private boolean sendMessage(String message, int duration){
         try {
             responseOK = false;
             HttpURLConnection connection = (HttpURLConnection) changeLightsUrl.openConnection();
@@ -71,17 +72,20 @@ public class OpenLabHTTPCon {
 
             int status = connection.getResponseCode();
             responseOK = status <= 299;
+
+            TimeUnit.MILLISECONDS.sleep(duration);
+
             connection.disconnect();
             return responseOK;
 
 
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
         return false;
     }
 
-    public boolean setLights(String[] lights, int duration){
+    public boolean setColorLights(String[] lights, int duration){
         StringBuilder sb = new StringBuilder();
         sb.append("{\"colors\":[");
         for (String light : lights) {
@@ -97,7 +101,7 @@ public class OpenLabHTTPCon {
         sb.deleteCharAt(sb.length()-1);
         sb.append("], \"duration\":").append(duration).append("}");
 
-        return sendMessage(sb.toString());
+        return sendMessage(sb.toString(), duration);
     }
 }
 

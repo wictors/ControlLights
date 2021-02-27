@@ -1,4 +1,5 @@
 package program.model.turnOff;
+import program.instance.Instance;
 import program.model.Command;
 import yajco.annotation.Before;
 
@@ -14,6 +15,7 @@ public class TurnOff extends Command {
 
     @Override
     public void execute() {
+//        Instance.INSTANCE.getConnection().offLights();
         System.out.println("Vypnut vsetky svetla");
     }
 }

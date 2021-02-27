@@ -1,4 +1,5 @@
 package program.model.turnOn;
+import program.instance.Instance;
 import program.model.Command;
 import yajco.annotation.Before;
 
@@ -15,6 +16,7 @@ public class TurnOn extends Command {
 
     @Override
     public void execute() {
+//        Instance.INSTANCE.getConnection().onLights();
         System.out.println("Zapnut vsetky svetla");
     }
 }

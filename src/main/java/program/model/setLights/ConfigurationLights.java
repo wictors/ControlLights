@@ -2,7 +2,7 @@ package program.model.setLights;
 import program.instance.Instance;
 import program.model.Command;
 import program.model.Number;
-import program.openLab.OpenLabHTTPCon;
+import program.openLab.Connection;
 import yajco.annotation.After;
 import yajco.annotation.Before;
 
@@ -39,13 +39,13 @@ public class ConfigurationLights extends Command {
     }
 
     private void setLightsHTTP(){
-        OpenLabHTTPCon olHttp = Instance.INSTANCE.getOlHttp();
+        Connection connection = Instance.INSTANCE.getConnection();
         String[] lights = new String[numberOfLights];
         for (Configuration configuration: configurations) {
             for (Integer light: configuration.getLights().getLightsPosition()) {
                 lights[light-1] = configuration.getColor().getColor();
             }
         }
-        olHttp.setLights(lights, duration.getNumber());
+        connection.setColorLights(lights, duration.getNumber());
     }
 }
