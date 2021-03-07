@@ -1,20 +1,13 @@
 on
 lights:1000{
-    [1:1,2,3],[2:1,2,3],[3:1,2,3] -> #ffffff
+    [1:1,2],[2:1,2],[3:1,2] -> #ffffff
+    [1..3:1..3,11..15],[1:5],[2:7],[3:9] -> #aaaaaa
 }
-lights:2000{
-    [1..3:1..3] -> #aaaaaa
-}
-lights:3000{
-    [1..3:1..3,20,23..27],[1:4,5],[2:6,7],[3:8..10] -> #aaaaaa
-}
-for x=1 to 3 {
-    for y=1 to 3 {
-        lights:y{[x:y] -> #ffffff}
+for x=1 to 10 {
+    if ((x%2) == 0){
+        lights:333{[1:x] -> #ffffff}
+    }else{
+        wait:1000
     }
 }
-for x=0 to 10 step 2 {
-    wait:x
-}
-
 off
