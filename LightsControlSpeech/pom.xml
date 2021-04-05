@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>LightsControl</artifactId>
+        <groupId>sk.tuke.yajco.lights</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>LightsControlSpeech</artifactId>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20201115</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>sk.tuke.yajco.lights</groupId>-->
+<!--            <artifactId>SpringApi</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>sk.tuke.yajco</groupId>
+            <artifactId>yajco-annotation-processor</artifactId>
+            <version>0.5.9</version>
+        </dependency>
+        <dependency>
+            <groupId>sk.tuke.yajco</groupId>
+            <artifactId>yajco-javacc-parser-generator-module</artifactId>
+            <version>0.5.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.paho</groupId>
+            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

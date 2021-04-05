@@ -6,14 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lightscontrollanguage" />
+        <module name="SpringApi" />
         <module name="LightsControlLanguage" />
+        <module name="LightsControlSpeech" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="lightscontrollanguage" options="-parameters" />
+      <module name="LightsControlLanguage" options="-parameters" />
+      <module name="LightsControlSpeech" options="-parameters" />
+      <module name="SpringApi" options="-parameters" />
+      <module name="lightscontrol" options="" />
     </option>
   </component>
 </project>

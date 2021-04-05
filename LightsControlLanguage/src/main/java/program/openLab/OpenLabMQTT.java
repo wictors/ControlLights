@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class OpenLabMQTT extends Connection {
 
     private static final String URL = "tcp://openlab.kpi.fei.tuke.sk:1883";
-    private static final String topic3 = "openlab/lights";
+    private static final String topic = "openlab/lights";
     private static final int ZERODURATION = 0;
     private static IMqttClient sender;
     private static MqttConnectOptions options;
@@ -30,7 +30,7 @@ public class OpenLabMQTT extends Connection {
         try {
             sender.connect(options);
             byte[] bytes = msg.getBytes(StandardCharsets.UTF_8);
-            sender.publish(topic3, new MqttMessage(bytes));
+            sender.publish(topic, new MqttMessage(bytes));
 
             TimeUnit.MILLISECONDS.sleep(duration);
 

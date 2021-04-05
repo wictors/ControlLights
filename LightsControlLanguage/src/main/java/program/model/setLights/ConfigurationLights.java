@@ -27,7 +27,7 @@ public class ConfigurationLights extends Command {
 
     @Override
     public void execute() {
-        //setLightsHTTP();
+//        setLightsHTTP();
         System.out.println("Zmena svetiel bude trvat: " + duration.getNumber() + " milisekund");
         for (Configuration configuration: configurations) {
             System.out.print("Farba: " + configuration.getColor().getColor() + " pre svetla: ");
