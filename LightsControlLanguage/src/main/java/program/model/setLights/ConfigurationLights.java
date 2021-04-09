@@ -1,4 +1,5 @@
 package program.model.setLights;
+import program.ExceptionInConfig;
 import program.instance.Instance;
 import program.model.Command;
 import program.model.Number;
@@ -26,11 +27,11 @@ public class ConfigurationLights extends Command {
 
 
     @Override
-    public void execute() {
-//        setLightsHTTP();
+    public void execute() throws ExceptionInConfig {
+//        setLights();
         System.out.println("Zmena svetiel bude trvat: " + duration.getNumber() + " milisekund");
         for (Configuration configuration: configurations) {
-            System.out.print("Farba: " + configuration.getColor().getColor() + " pre svetla: ");
+            System.out.print("Farba: " + configuration.getLightColor().getColor() + " pre svetla: ");
             for (Integer light: configuration.getLights().getLightsPosition()) {
                 System.out.print(light + ", ");
             }
@@ -38,12 +39,12 @@ public class ConfigurationLights extends Command {
         }
     }
 
-    private void setLightsHTTP(){
+    private void setLights() throws ExceptionInConfig{
         Connection connection = Instance.INSTANCE.getConnection();
         String[] lights = new String[numberOfLights];
         for (Configuration configuration: configurations) {
             for (Integer light: configuration.getLights().getLightsPosition()) {
-                lights[light-1] = configuration.getColor().getColor();
+                lights[light-1] = configuration.getLightColor().getColor();
             }
         }
         connection.setColorLights(lights, duration.getNumber());

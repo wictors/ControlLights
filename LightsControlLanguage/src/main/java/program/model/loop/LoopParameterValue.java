@@ -20,9 +20,6 @@ public class LoopParameterValue extends Value {
     }
 
     String getVariable() {
-        if (variable == null){
-            return "";
-        }
         return variable;
     }
 

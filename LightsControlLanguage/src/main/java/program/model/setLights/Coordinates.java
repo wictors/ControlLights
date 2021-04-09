@@ -1,4 +1,5 @@
 package program.model.setLights;
+import program.ExceptionInConfig;
 import yajco.annotation.*;
 import java.util.ArrayList;
 
@@ -23,8 +24,9 @@ public final class Coordinates implements Config {
         this.lightIntervals = lightIntervals;
     }
 
+    /* Prevod svetla zo suradnice "x:x" do skutocnej hodnoty v OpenLab*/
     @Override
-    public ArrayList<Integer> getLightsPosition() {
+    public ArrayList<Integer> getLightsPosition() throws ExceptionInConfig {
         ArrayList<Integer> lightsPosition = new ArrayList<>();
         for (Interval lineInterval : lineIntervals) {
             for (Integer line : lineInterval.getIntervalNumbers()) {

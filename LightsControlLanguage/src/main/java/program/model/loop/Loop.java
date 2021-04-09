@@ -1,4 +1,5 @@
 package program.model.loop;
+import program.ExceptionInConfig;
 import program.instance.Instance;
 import program.model.Command;
 import program.model.Variables;
@@ -20,7 +21,7 @@ public class Loop extends Command {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws ExceptionInConfig {
         int startValue = loopParameters.getStartValue();
         int step = loopParameters.getStep();
         int endValue = loopParameters.getEndValue();

@@ -1,5 +1,8 @@
 package rest;
 
+import language.ExecuteSpeechCmd;
+import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
+import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import parser.ExpressionParser;
 import parser.ParseException;
@@ -7,12 +10,10 @@ import program.model.Program;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 /* SINGLETON class*/
 
-public class ConfigurationParser {
+public class ConfigurationParser implements ExecuteSpeechCmd {
 
     private static ConfigurationParser configurationParser_instance = null;
     private static ArrayList<File> configurations;
@@ -21,14 +22,14 @@ public class ConfigurationParser {
     private ConfigurationParser() {
     }
 
-    public static ConfigurationParser getInstance(){
+    static ConfigurationParser getInstance(){
         if (configurationParser_instance == null){
             configurationParser_instance = new ConfigurationParser();
         }
         return configurationParser_instance;
     }
 
-    public boolean parseConfiguration(String nameConfiguration){
+    boolean parseConfiguration(String nameConfiguration){
         if(configurations != null) {
             for (File configuration : configurations) {
                 if (configuration.getName().equals(nameConfiguration)) {
@@ -50,42 +51,43 @@ public class ConfigurationParser {
         return false;
     }
 
-    public boolean executeCommand(String command){
+    void executeCommand(String command){
         ExpressionParser ep = new ExpressionParser();
         try {
             Program program = ep.parse(command);
             program.execute();
-            return true;
         } catch (ParseException e) {
             e.printStackTrace();
-            return false;
         }
     }
 
-    public void unZipConfigurations (File fileZip) throws IOException{
+    void unZipConfigurations(File fileZip) throws IOException{
         File cleanPackage = new File(basePackage);
-        FileUtils.cleanDirectory(cleanPackage);
+        if (cleanPackage.isDirectory()){
+            FileUtils.cleanDirectory(cleanPackage);
+        }else{
+            cleanPackage.mkdir();
+        }
         configurations = new ArrayList<>();
         byte[] buffer = new byte[1024];
         int length;
-        ZipInputStream zis = new ZipInputStream(new FileInputStream(fileZip));
-        ZipEntry zipEntry = zis.getNextEntry();
-        while (zipEntry != null) {
-            File configuration = new File(basePackage + "/" +  zipEntry.getName());
+        TarArchiveInputStream tis = new TarArchiveInputStream(new FileInputStream(fileZip));
+        TarArchiveEntry tarEntry = tis.getNextTarEntry();
+        while (tarEntry != null) {
+            File configuration = new File(basePackage + "/" +  tarEntry.getName());
             FileOutputStream fos = new FileOutputStream(configuration);
-            while ((length = zis.read(buffer)) >= 0) {
+            while ((length = tis.read(buffer)) >= 0) {
                 fos.write(buffer, 0, length);
             }
             fos.close();
             configurations.add(configuration);
             System.out.println(configuration.getName());
-            zipEntry = zis.getNextEntry();
+            tarEntry = tis.getNextTarEntry();
         }
-        zis.closeEntry();
-        zis.close();
+        tis.close();
     }
 
-    public String[] getNameOfConfigs(){
+    String[] getNameOfConfigs(){
         if(configurations != null) {
             String[] namesOfFiles = new String[configurations.size()];
             for (int i = 0; i < namesOfFiles.length; i++) {
@@ -94,5 +96,15 @@ public class ConfigurationParser {
             return namesOfFiles;
         }
         return null;
+    }
+
+    @Override
+    public void playConfig(String nameOfConfig) {
+        parseConfiguration(nameOfConfig);
+    }
+
+    @Override
+    public void executeCmd(String command) {
+        executeCommand(command);
     }
 }

@@ -1,7 +1,7 @@
 package language.model.switchOn;
 
+import language.ExecuteSpeechCmd;
 import language.model.Command;
-import language.model.RequestsHTTP;
 import yajco.annotation.Before;
 
 public class SwitchOn extends Command {
@@ -11,8 +11,7 @@ public class SwitchOn extends Command {
     }
 
     @Override
-    public void execute() {
-        RequestsHTTP request = new RequestsHTTP();
-        request.executeCommand("on");
+    public void execute(ExecuteSpeechCmd esc) {
+        esc.executeCmd("on");
     }
 }

@@ -1,22 +1,22 @@
 package program.model.setLights;
 import yajco.annotation.Before;
 
-/* Zapis: [1..3:1..27], ... ,[1..3:1..27] -> #hex (Color)
+/* Zapis: [1..3:1..27], ... ,[1..3:1..27] -> #hex (LightColor)
 * Zoznam vsetkych svetiel, ktore sa maju zmenit na konkretnu farbu
 */
 
 public class Configuration {
 
-    private Color color;
+    private LightColor lightColor;
     private Lights lights;
 
-    public Configuration(Lights lights, @Before("->") Color color) {
-        this.color = color;
+    public Configuration(Lights lights, @Before("->") LightColor lightColor) {
+        this.lightColor = lightColor;
         this.lights = lights;
     }
 
-    Color getColor() {
-        return color;
+    LightColor getLightColor() {
+        return lightColor;
     }
 
     Lights getLights() {

@@ -8,7 +8,7 @@ public class Api {
 
     public static void main(String[] args) {
         SpringApplication.run(Api.class, args);
-        Ola ola = new Ola();
+        Ola ola = new Ola(ConfigurationParser.getInstance());
         ola.hearing();
     }
 }

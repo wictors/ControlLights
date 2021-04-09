@@ -1,4 +1,5 @@
 package program.model.setLights;
+import program.ExceptionInConfig;
 import yajco.annotation.Separator;
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class Lights implements Config {
     }
 
     @Override
-    public ArrayList<Integer> getLightsPosition() {
+    public ArrayList<Integer> getLightsPosition() throws ExceptionInConfig {
         ArrayList<Integer> lightsPosition = new ArrayList<>();
         for (Coordinates coordinate : coordinates) {
             lightsPosition.addAll(coordinate.getLightsPosition());

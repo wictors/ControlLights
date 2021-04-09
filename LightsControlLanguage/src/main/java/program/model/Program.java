@@ -1,4 +1,5 @@
 package program.model;
+import program.ExceptionInConfig;
 import yajco.annotation.Range;
 
 /*Hlavna trieda reprezentujuca cely konfiguracny dokument
@@ -16,7 +17,11 @@ public class Program {
 
     public void execute(){
         for (Command cmd: commands) {
-            cmd.execute();
+            try {
+                cmd.execute();
+            } catch (ExceptionInConfig exceptionInConfig) {
+                exceptionInConfig.printStackTrace();
+            }
         }
     }
 

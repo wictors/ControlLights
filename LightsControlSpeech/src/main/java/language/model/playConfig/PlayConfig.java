@@ -1,7 +1,7 @@
 package language.model.playConfig;
 
+import language.ExecuteSpeechCmd;
 import language.model.Command;
-import language.model.RequestsHTTP;
 import yajco.annotation.Before;
 
 public class PlayConfig extends Command {
@@ -14,8 +14,7 @@ public class PlayConfig extends Command {
     }
 
     @Override
-    public void execute() {
-        RequestsHTTP request = new RequestsHTTP();
-        request.playConfig(nameOfConfiguration + ".txt");
+    public void execute(ExecuteSpeechCmd esc) {
+        esc.playConfig(nameOfConfiguration + ".txt");
     }
 }

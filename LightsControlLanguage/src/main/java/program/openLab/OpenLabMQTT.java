@@ -9,7 +9,7 @@ public class OpenLabMQTT extends Connection {
 
     private static final String URL = "tcp://openlab.kpi.fei.tuke.sk:1883";
     private static final String topic = "openlab/lights";
-    private static final int ZERODURATION = 0;
+    private static final int DEFAULT_DURATION = 0;
     private static IMqttClient sender;
     private static MqttConnectOptions options;
 
@@ -45,13 +45,13 @@ public class OpenLabMQTT extends Connection {
     @Override
     public boolean onLights() {
         String allOn = "{\"all\": \"000000ff\", \"duration\": 0}";
-        return sendMessage(allOn, ZERODURATION);
+        return sendMessage(allOn, DEFAULT_DURATION);
     }
 
     @Override
     public boolean offLights() {
         String allOff = "{\"all\": \"00000000\", \"duration\": 0}";
-        return sendMessage(allOff, ZERODURATION);
+        return sendMessage(allOff, DEFAULT_DURATION);
     }
 
     @Override

@@ -2,7 +2,6 @@ package program.model.condition;
 
 import program.model.ExpBool;
 import program.model.Expression;
-import program.model.Number;
 import yajco.annotation.After;
 import yajco.annotation.Before;
 

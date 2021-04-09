@@ -10,7 +10,7 @@ public abstract class Value {
     private String variable;
     private boolean isVariable = false;
 
-    protected  void setVariable(String variable){
+    void setVariable(String variable){
         isVariable = true;
         this.variable = variable;
     }

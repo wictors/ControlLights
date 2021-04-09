@@ -1,5 +1,6 @@
 package program.model.condition;
 
+import program.ExceptionInConfig;
 import program.model.ExpBool;
 import program.model.Command;
 import yajco.annotation.After;
@@ -27,7 +28,7 @@ public class Condition extends Command {
 
 
     @Override
-    public void execute() {
+    public void execute() throws ExceptionInConfig {
         if (commands2 != null) {
             if (condition.evaluateBool()) {
                 for (Command cmd : commands1) {

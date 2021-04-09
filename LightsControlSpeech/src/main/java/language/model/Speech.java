@@ -1,5 +1,6 @@
 package language.model;
 
+import language.ExecuteSpeechCmd;
 import yajco.annotation.Range;
 
 public class Speech {
@@ -10,9 +11,9 @@ public class Speech {
         this.commands = commands;
     }
 
-    public void execute(){
+    public void execute(ExecuteSpeechCmd esc){
         for (Command cmd: commands) {
-            cmd.execute();
+            cmd.execute(esc);
         }
     }
 }

@@ -5,7 +5,6 @@ import org.eclipse.paho.client.mqttv3.*;
 import org.json.JSONObject;
 import parser.ParseException;
 import parser.SpeechParser;
-
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
@@ -20,8 +19,10 @@ public class Ola {
     private static IMqttClient mqttClient;
     private static MqttConnectOptions options;
     private static SpeechParser speechParser;
+    private static ExecuteSpeechCmd esc;
 
-    public Ola() {
+    public Ola(ExecuteSpeechCmd esc) {
+        Ola.esc = esc;
         String subscriberId = UUID.randomUUID().toString();
         speechParser = new SpeechParser();
         try {
@@ -53,7 +54,7 @@ public class Ola {
                         Speech command  = speechParser.parse(speech);
                         System.out.println("Rec: " + speech);
                         talking(true);
-                        command.execute();
+                        command.execute(esc);
                     } catch (ParseException e) {
                         talking(false);
                     }
@@ -85,16 +86,5 @@ public class Ola {
         }catch (MqttException e){
             e.printStackTrace();
         }
-    }
-
-    public void test(String test){
-        Speech command  = null;
-        try {
-            command = speechParser.parse(test);
-            command.execute();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
     }
 }
