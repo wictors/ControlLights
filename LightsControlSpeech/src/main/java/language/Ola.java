@@ -10,12 +10,12 @@ import java.util.UUID;
 
 public class Ola {
 
-    private static final String COMMAND_OK = "Vykonavam prikaz";
+    private static final String COMMAND_OK = System.getProperty("SPEECH_CMD_OK");
     private static final String COMMAND_FAIL = "Nepoznam prikaz";
 
-    private static final String URL = "tcp://openlab.kpi.fei.tuke.sk:1883";
-    private static final String talkTopic = "openlab/audio";
-    private static final String hearTopic = "experiments/voice/recognition/vs604qm";
+    private static final String URL = System.getProperty("MQTT_URL");
+    private static final String talkTopic = System.getProperty("MQTT_TOPIC_TALK");
+    private static final String hearTopic = System.getProperty("MQTT_TOPIC_HEAR");
     private static IMqttClient mqttClient;
     private static MqttConnectOptions options;
     private static SpeechParser speechParser;

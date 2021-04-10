@@ -16,9 +16,9 @@ public class OpenLabHTTP extends Connection {
 
     public OpenLabHTTP() {
         try {
-            onUrl = new URL("https://openlab.kpi.fei.tuke.sk/rest/light/all-on");
-            offUrl = new URL("https://openlab.kpi.fei.tuke.sk/rest/light/all-off");
-            changeLightsUrl = new URL("https://openlab.kpi.fei.tuke.sk/rest/light");
+            onUrl = new URL(System.getProperty("HTTP_LIGHTS_ON"));
+            offUrl = new URL(System.getProperty("HTTP_LIGHTS_OFF"));
+            changeLightsUrl = new URL(System.getProperty("HTTP_LIGHTS_CHANGE"));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

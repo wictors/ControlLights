@@ -19,7 +19,7 @@ import java.nio.file.StandardCopyOption;
 @RestController
 public class Controller {
 
-    private static final String API_TOKEN = "PasswordApi0000";
+    private static final String API_TOKEN = System.getProperty("API_TOKEN");
 
     @GetMapping("/getConfigs")
     @ResponseBody

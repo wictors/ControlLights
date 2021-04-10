@@ -7,8 +7,8 @@ import java.util.concurrent.TimeUnit;
 
 public class OpenLabMQTT extends Connection {
 
-    private static final String URL = "tcp://openlab.kpi.fei.tuke.sk:1883";
-    private static final String topic = "openlab/lights";
+    private static final String URL = System.getProperty("MQTT_URL");
+    private static final String topic = System.getProperty("MQTT_TOPIC_LIGHTS");
     private static final int DEFAULT_DURATION = 0;
     private static IMqttClient sender;
     private static MqttConnectOptions options;
