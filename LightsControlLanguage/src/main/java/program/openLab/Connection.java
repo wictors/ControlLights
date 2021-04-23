@@ -1,5 +1,6 @@
 package program.openLab;
 
+// May be replaced with interface.
 public abstract class Connection {
 
     public abstract boolean onLights();

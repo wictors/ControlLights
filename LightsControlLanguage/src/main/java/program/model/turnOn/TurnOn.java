@@ -3,10 +3,9 @@ import program.instance.Instance;
 import program.model.Command;
 import yajco.annotation.Before;
 
-/* Trieda definujuca prikaz zapnutia vsetkych svetiel.
-*  Rozsiruje zakladnu triedu prikaz (Command)
-*  V konkretnej syntaxi zapisana ako "ON"
-* */
+/* CLass represent ON command
+Send request to OpenLab for switch on all lights (white color)
+*/
 public class TurnOn extends Command {
 
     @Before("on")
@@ -16,7 +15,6 @@ public class TurnOn extends Command {
 
     @Override
     public void execute() {
-//        Instance.INSTANCE.getConnection().onLights();
-        System.out.println("Zapnut vsetky svetla");
+        Instance.INSTANCE.getConnection().onLights();
     }
 }

@@ -4,13 +4,16 @@ import language.ExecuteSpeechCmd;
 import language.model.Command;
 import yajco.annotation.Before;
 
+/*Speech command - play configuration {name of configuration}
+* Accepted just file which are saved with lowercase and without numbers or spaces */
+
 public class PlayConfig extends Command {
 
     private static String nameOfConfiguration;
 
-    @Before("Spusti konfiguraciu")
-    public PlayConfig(String configuration) {
-        nameOfConfiguration = configuration;
+    @Before("prehraj konfiguraciu")
+    public PlayConfig(String name) {
+        nameOfConfiguration = name;
     }
 
     @Override

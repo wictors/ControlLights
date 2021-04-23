@@ -2,7 +2,7 @@
         className = "parser.SpeechParser",
         mainNode = "language.model.Speech",
         tokens = {
-                @TokenDef(name = "CONFIGURATION", regexp = "[1-9a-zA-Z]+")
+                @TokenDef(name = "NAME", regexp = "[a-z]+")
         },
         skips = {
                 @Skip(" "),

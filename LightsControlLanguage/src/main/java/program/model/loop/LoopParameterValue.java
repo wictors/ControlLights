@@ -3,7 +3,8 @@ import program.instance.Instance;
 import program.model.Value;
 import yajco.annotation.Before;
 
-/*Hodnoty parametrov vratane definovania premennej v prvom parametri*/
+/*Concrete values of all parameters in loop
+* Variable is saved to Variables class (second constructor)*/
 
 public class LoopParameterValue extends Value {
 

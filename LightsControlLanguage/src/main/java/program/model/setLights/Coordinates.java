@@ -3,11 +3,10 @@ import program.ExceptionInConfig;
 import yajco.annotation.*;
 import java.util.ArrayList;
 
-/* Zapis [1..3:1..27]
-* Definuje vsetky svetla zo zapisu podla toho v akom su rade
-*  na ich skutocne hodnoty priradene v OpenLabe
-* */
-
+/* After Lights class
+Concrete syntax inside []
+Notation --> [columns1-3:numbers1-27] shortcut 1..27 (interval), separator ","
+*/
 
 public final class Coordinates implements Config {
 
@@ -24,7 +23,7 @@ public final class Coordinates implements Config {
         this.lightIntervals = lightIntervals;
     }
 
-    /* Prevod svetla zo suradnice "x:x" do skutocnej hodnoty v OpenLab*/
+    /* Change coordinates of light to concrete number of light in OpenLab */
     @Override
     public ArrayList<Integer> getLightsPosition() throws ExceptionInConfig {
         ArrayList<Integer> lightsPosition = new ArrayList<>();

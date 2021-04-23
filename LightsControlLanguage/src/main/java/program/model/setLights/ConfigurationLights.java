@@ -7,9 +7,9 @@ import program.openLab.Connection;
 import yajco.annotation.After;
 import yajco.annotation.Before;
 
-/* Zapis: lights:0..9+(duration){ [1..3:1..27], ... ,[1..3:1..27] -> color }
-*  Celkove nastavenie svetiel aj s casovou dlzkou zmeny svetla
-*  Moze byt zadanych viacero konfiguracii svetiel na konkretnu farbu v strukture
+/* Main class of SetLights command.
+Basic notation --> lights:{duration}{...configurations...}
+Send data to OpenLab via connection in execute method
 */
 public class ConfigurationLights extends Command {
 
@@ -28,15 +28,7 @@ public class ConfigurationLights extends Command {
 
     @Override
     public void execute() throws ExceptionInConfig {
-//        setLights();
-        System.out.println("Zmena svetiel bude trvat: " + duration.getNumber() + " milisekund");
-        for (Configuration configuration: configurations) {
-            System.out.print("Farba: " + configuration.getLightColor().getColor() + " pre svetla: ");
-            for (Integer light: configuration.getLights().getLightsPosition()) {
-                System.out.print(light + ", ");
-            }
-            System.out.println("");
-        }
+        setLights();
     }
 
     private void setLights() throws ExceptionInConfig{

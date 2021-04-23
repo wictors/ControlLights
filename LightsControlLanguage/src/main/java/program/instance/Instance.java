@@ -4,14 +4,13 @@ import program.openLab.Connection;
 import program.openLab.OpenLabHTTP;
 import program.openLab.OpenLabMQTT;
 
-/*Jedinecnost pozadovanych objektov v celom programe.
-* Variables, OpenLabHTTP --> 1 instancia kdekolvek v programe*/
-
+// Singelton factory for class Variables, Connection(abstract class)
 public enum Instance {
     INSTANCE;
     private Variables variables;
     private Connection connection;
 
+    // Instantce of variables class for language
     public Variables getVariables(){
         if(variables == null){
             variables = new Variables();
@@ -19,12 +18,15 @@ public enum Instance {
         return variables;
     }
 
-    /*  Instance of connection to OpenLab.
+    /*  Instance of connection class to OpenLab.
     *   MQTT or HTTP. */
     public Connection getConnection() {
         if (connection == null){
-//            connection = new OpenLabHTTP();
-            connection = new OpenLabMQTT();
+            if(System.getProperty("CONNECTION").toUpperCase().equals("HTTP")){
+                connection = new OpenLabHTTP();
+            }else{
+                connection = new OpenLabMQTT();
+            }
         }
         return connection;
     }

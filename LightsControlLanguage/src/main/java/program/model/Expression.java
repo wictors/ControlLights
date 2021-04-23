@@ -1,5 +1,6 @@
 package program.model;
 
+//Basic class for Math and Boolean expression in condition
 public class Expression {
 
     private Number n1;

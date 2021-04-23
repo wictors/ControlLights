@@ -3,9 +3,8 @@ import program.instance.Instance;
 import program.model.Command;
 import yajco.annotation.Before;
 
-/* Trieda definujuca prikaz vypnutia vsetkych svetiel.
-*  Rozsiruje zakladnu triedu prikaz (Command)
-*  V konkretnej syntaxi zapisana ako "OFF"
+/* CLass represent OFF command
+Send request to OpenLab for switch off all lights
 */
 public class TurnOff extends Command {
 
@@ -15,7 +14,6 @@ public class TurnOff extends Command {
 
     @Override
     public void execute() {
-//        Instance.INSTANCE.getConnection().offLights();
-        System.out.println("Vypnut vsetky svetla");
+        Instance.INSTANCE.getConnection().offLights();
     }
 }

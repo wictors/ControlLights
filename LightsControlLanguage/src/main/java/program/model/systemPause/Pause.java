@@ -5,10 +5,8 @@ import yajco.annotation.Before;
 
 import java.util.concurrent.TimeUnit;
 
-/* Trieda definujuca prikaz systemoveho cakania. Casovy interval po ktorom sa vykona dalsi prikaz.
- *  Rozsiruje zakladnu triedu prikaz (Command)
- *  V konkretnej syntaxi zapisana ako "PAUSE"
- * */
+/* Class represent PAUSE command
+* Sleep system on concrete duration*/
 public class Pause extends Command {
 
     private final Number duration;
@@ -20,11 +18,10 @@ public class Pause extends Command {
 
     @Override
     public void execute() {
-//        try {
-//            TimeUnit.MILLISECONDS.sleep(duration.getNumber());
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        System.out.println("Pauza systemu na: " + duration.getNumber() + " milisekund");
+        try {
+            TimeUnit.MILLISECONDS.sleep(duration.getNumber());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

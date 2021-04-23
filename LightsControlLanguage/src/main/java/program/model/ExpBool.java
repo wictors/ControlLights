@@ -1,5 +1,6 @@
 package program.model;
 
+//All boolean expression in condition extended this abstract class
 public abstract class ExpBool {
 
     private Expression exp1;

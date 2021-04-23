@@ -1,22 +1,21 @@
 package program.model;
 import java.util.HashMap;
 
-/*Trieda pocas behu programu zabezpecuje uchovavanie a citanie
-* premennych definovanych pouzivatelom*/
+/* Class save variables in language (for example in loop) */
 
 public class Variables {
 
     private HashMap<String,Integer> variables;
 
     public Variables() {
-        variables = new HashMap<String,Integer>();
+        variables = new HashMap<>();
     }
 
     public void setVariable(String key, int value){
         variables.put(key, value);
     }
 
-    public int getVariable(String key){
+    int getVariable(String key){
         return variables.get(key);
     }
 

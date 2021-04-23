@@ -4,7 +4,7 @@
         tokens = {
                 @TokenDef(name = "COLON", regexp = "[:]"),
                 @TokenDef(name = "NUMBER", regexp = "[0-9]+"),
-                @TokenDef(name = "HEX", regexp = "[#0-9a-z]+"),
+                @TokenDef(name = "HEX", regexp = "[#0-9a-zA-Z]+"),
                 @TokenDef(name = "VARIABLE", regexp = "[a-z]+"),
                 @TokenDef(name = "ASSIGN", regexp = "[=]")
         },

@@ -6,12 +6,17 @@ import org.json.JSONObject;
 import parser.ParseException;
 import parser.SpeechParser;
 import java.nio.charset.StandardCharsets;
+import java.text.Normalizer;
 import java.util.UUID;
+
+/* Connection with MQTT protocol to audio in OpenLab
+* Hearing speech in OpenLab and recognized command.
+* Also talking OK or NO command in OpenLab, but not test */
 
 public class Ola {
 
     private static final String COMMAND_OK = System.getProperty("SPEECH_CMD_OK");
-    private static final String COMMAND_FAIL = "Nepoznam prikaz";
+    private static final String COMMAND_FAIL = System.getProperty("SPEECH_CMD_ERR");
 
     private static final String URL = System.getProperty("MQTT_URL");
     private static final String talkTopic = System.getProperty("MQTT_TOPIC_TALK");
@@ -30,7 +35,6 @@ public class Ola {
             options = new MqttConnectOptions();
             options.setAutomaticReconnect(true);
             options.setCleanSession(true);
-            //options.setKeepAliveInterval(10);
             options.setConnectionTimeout(10);
         } catch (MqttException e) {
             e.printStackTrace();
@@ -48,15 +52,20 @@ public class Ola {
             public void messageArrived(String s, MqttMessage mqttMessage) {
                 JSONObject jsonmsg = new JSONObject(new String(mqttMessage.getPayload()));
                 String status = jsonmsg.getString("status");
+                System.out.println(status);
                 if (status.equals("recognized")){
                     String speech = jsonmsg.getString("recognized");
+                    speech = Normalizer.normalize(speech, Normalizer.Form.NFD);
+                    speech = speech.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+                    speech = speech.toLowerCase();
                     try {
                         Speech command  = speechParser.parse(speech);
-                        System.out.println("Rec: " + speech);
                         talking(true);
                         command.execute(esc);
                     } catch (ParseException e) {
                         talking(false);
+                        System.err.println("FAILED !");
+                        e.printStackTrace();
                     }
                 }
             }

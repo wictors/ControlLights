@@ -6,6 +6,8 @@ import program.model.Command;
 import yajco.annotation.After;
 import yajco.annotation.Before;
 
+// Main class of IF command.
+// References other commands and ExpBool (Equal,Less,Greater,...)
 public class Condition extends Command {
 
     private ExpBool condition;

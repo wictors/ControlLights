@@ -4,6 +4,8 @@ import program.model.Number;
 import yajco.annotation.After;
 import yajco.annotation.Before;
 
+// Math expression "%" - modulo.
+// Extends abstract class Expression and evaluate value
 public class Mod extends Expression {
 
     @Before("(")

@@ -1,13 +1,11 @@
 package program.model.setLights;
 
-/*Trieda reprezentujuca farbu svetla v hexadecimalnom tvare
-* Farba je udana priamo v texte konfiguracie
-* Sucast prikazu pre nastavenie svetiel na pozadovanu farbu*/
-
 import program.ExceptionInConfig;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/*Color in hexadecimal number
+ * Check correct hexadecimal notation*/
 public class LightColor {
 
     private final String color;
@@ -24,8 +22,8 @@ public class LightColor {
             if (matcher.matches()){
                 return color;
             }
-            throw new ExceptionInConfig("Farba: " + color + " nie je HEX pre RGB. Zle cislo.");
+            throw new ExceptionInConfig("Color: " + color + " is not HEX. Incorrect !");
         }
-        throw new ExceptionInConfig("Chyba farba !");
+        throw new ExceptionInConfig("Missing color !");
     }
 }

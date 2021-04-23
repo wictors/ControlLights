@@ -1,10 +1,11 @@
 package program.model.condition;
-
 import program.model.ExpBool;
 import program.model.Expression;
 import yajco.annotation.After;
 import yajco.annotation.Before;
 
+// Boolean expression "!=".
+// Extends abstract class ExpBool
 public class NotEqual extends ExpBool {
 
     @Before("(")

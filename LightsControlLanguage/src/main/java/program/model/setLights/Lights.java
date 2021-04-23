@@ -3,10 +3,9 @@ import program.ExceptionInConfig;
 import yajco.annotation.Separator;
 import java.util.ArrayList;
 
-/*
-Zapis [1..3:1..27], ... ,[1..3:1..27]
-Zhromazduje vsetky svetla, ktore maju byt ovplyvnene zo zapisu.
-Zapis moze obsahovat zapis pre 3 rady sucasne alebo aj pre 1 samostatne
+/* After class Configuration
+Concrete syntax for coordinates of lights
+Notation --> [coordinates], ... ,[coordinates]
 */
 
 public class Lights implements Config {

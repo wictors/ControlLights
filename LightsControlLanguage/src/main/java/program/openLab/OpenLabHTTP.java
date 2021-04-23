@@ -7,6 +7,10 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 
+
+/* HTTP connection to OpenLab
+* Send request and data to lights URL*/
+
 public class OpenLabHTTP extends Connection {
 
     private static URL onUrl;

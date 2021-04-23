@@ -1,6 +1,8 @@
 package language;
 
+/*Interface which implements class from SpringApi module*/
+
 public interface ExecuteSpeechCmd {
-    public void playConfig(String nameOfConfig);
-    public void executeCmd(String command);
+     void playConfig(String nameOfConfig);
+     void executeCmd(String command);
 }

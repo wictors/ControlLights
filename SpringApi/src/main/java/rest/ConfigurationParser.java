@@ -7,11 +7,14 @@ import org.apache.tomcat.util.http.fileupload.FileUtils;
 import parser.ExpressionParser;
 import parser.ParseException;
 import program.model.Program;
-
 import java.io.*;
 import java.util.ArrayList;
 
-/* SINGLETON class*/
+/* SINGLETON class
+* Implements interface from LightsControlSpeech --> send data to LightsControlLanguage
+* Load, save, read, configurations files
+* Send data or LightsControlLanguage for to set lights
+* */
 
 public class ConfigurationParser implements ExecuteSpeechCmd {
 

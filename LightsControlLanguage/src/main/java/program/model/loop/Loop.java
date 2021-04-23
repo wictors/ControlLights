@@ -6,8 +6,9 @@ import program.model.Variables;
 import yajco.annotation.After;
 import yajco.annotation.Before;
 
-/* Zakladna definicia prikazu cyklu FOR a vykonanie prikazov v nom*/
 
+// Main class of FOR command.
+// It consists of Loopparameters and other Commands.
 public class Loop extends Command {
 
     private Command[] commands;

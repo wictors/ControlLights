@@ -1,6 +1,7 @@
 package language.model;
 
-/* Abstraktna trieda reprezentujuca jednotlivy cely prikaz v jazyku */
+/* *All command extends this class.
+ * Instance of this class is use in main class of language - Speech*/
 
 import language.ExecuteSpeechCmd;
 

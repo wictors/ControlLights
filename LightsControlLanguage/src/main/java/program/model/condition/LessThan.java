@@ -5,6 +5,8 @@ import program.model.Expression;
 import yajco.annotation.After;
 import yajco.annotation.Before;
 
+// Boolean expression "<".
+// Extends abstract class ExpBool
 public class LessThan extends ExpBool {
 
     @Before("(")

@@ -2,10 +2,9 @@ package program.model;
 import program.ExceptionInConfig;
 import yajco.annotation.Range;
 
-/*Hlavna trieda reprezentujuca cely konfiguracny dokument
-Zoznam vsetkych prikazov svetiel, ktore sa postupne vykonavaju, tak ako boli zapisane
-Api class -->> package-info.java
- */
+/* Main class of language (for generated parser)
+All command are execute here
+*/
 
 public class Program {
 

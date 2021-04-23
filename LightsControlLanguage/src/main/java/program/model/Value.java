@@ -1,6 +1,6 @@
 package program.model;
 
-/* Abstraktna trieda reprezentujuca ciselnu hodnotu v jazyku*/
+/* Generally values for classes from language model  */
 
 import program.instance.Instance;
 

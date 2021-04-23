@@ -1,8 +1,8 @@
 package program.model.setLights;
 import yajco.annotation.Before;
 
-/* Zapis: [1..3:1..27], ... ,[1..3:1..27] -> #hex (LightColor)
-* Zoznam vsetkych svetiel, ktore sa maju zmenit na konkretnu farbu
+/* Next concrete syntax after main class
+Notation --> lights([Lights]) -> color(hex)
 */
 
 public class Configuration {

@@ -1,9 +1,9 @@
 package program.model.loop;
 import yajco.annotation.*;
 
-/*for x=1 to 5 step 2 {} ---- deklarovane vsetky 3 parametre
-* for x=1 to 5 {} ----------- bez step je default 1 */
 
+/* Notation --- x=1 to 5 step 2 {} /OR/ x=1 to 5 {} */
+// Concrete syntax of loop parameters and define their variable
 public class LoopParameters {
 
     private LoopParameterValue variable;

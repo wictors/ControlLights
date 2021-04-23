@@ -5,6 +5,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+/* MQTT connection to OpenLab
+* Send data via MQTT protocol to topic for control lights*/
+
 public class OpenLabMQTT extends Connection {
 
     private static final String URL = System.getProperty("MQTT_URL");
